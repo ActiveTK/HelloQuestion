@@ -2,26 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  background-color: #e6e6fa;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.Msg4PC {
+  display:inline-block;
+}
+.Msg4MB {
+  display:inline-block;
+}
+@media screen and (max-width:480px) {
+  .Msg4PC {
+    display:none;
+  }
+}
+@media screen and (min-width:481px) {
+  .Msg4MB {
+    display:none;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+a {
+    color: #017022;
+    position: relative;
+    display: inline-block;
+    transition: .3s;
 }
+
+    a::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #31aae2;
+        transition: .3s;
+        transform: translateX(-50%);
+    }
+
+    a:hover::after {
+        width: 100%;
+    }
+
+.LikeTitle {
+  font-size: 2.4rem;
+}
+.subTitle {
+  font-size: 1.2rem;
+}
+.contactIn {
+  height:200px;width:320px;
+}
+.sendbtn {
+  height:60px !important;width:120px !important;
+  padding: 0;
+  font-family: inherit;
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.buttonOutlineGradient {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 64px;
+  padding: 2px;
+  font-family: sans-serif;
+  font-size: 16px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  background: linear-gradient(135deg, #6fa24a, #15a1cc);
+  border-radius: 2px;
+}
+
+.buttonOutlineGradient::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: linear-gradient(135deg, #6fa24a, #15a1cc);
+  filter: blur(8px);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.buttonOutlineGradient_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: #222;
+  border-radius: 2px;
+}
+
+@media (any-hover: hover) {
+  .buttonOutlineGradient::before {
+    transition: opacity 0.2s;
+    will-change: filter;
+  }
+
+  .buttonOutlineGradient:hover::before {
+    opacity: 1;
+  }
+}
+
